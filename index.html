@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Epicodus Credit Union</title>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+    <h1>Welcome to the Epicodus Credit Union!</h1>
+    </div>
+
+    <hr>
+    <form id="new-account">
+        <div class="row">
+          <div class="col">
+              <div class="container2">
+              <h2>Register a new account:</h2>
+            Name: <input type="text" id="new-name-account" required> </input>
+            <div class="row">
+            Intitial Deposit: <input type="text" id="new-checking-account" required></input>
+            <button type="submit">Make account</button>
+        </div>
+    </div>
+         
+          <div class="row">
+            <div class="col">
+                <h2>Deposit or withdraw funds:</h2>
+              Deposit Amount: <input type="text"></input>
+              <div class="row">
+              Withdrawal Amount: <input type="text"></input>
+          
+          <button type="submit2">Confirm</button>
+        </div>
+        </form>
+        <div class=container>
+            <h2>Current Balance:</h2>
+            <output id="output"></output>
+        </div>
+</body>
+</html>
