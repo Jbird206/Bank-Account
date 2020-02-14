@@ -1,8 +1,53 @@
 body {
-    background-color: antiquewhite;
+    background-color: rgb(169, 193, 194);
+    opacity: 80%;
 }
 
 .container2 {
-    background-color: aqua;
+    background-color: rgb(95, 105, 105);
+    opacity: 80%;
     
 }
+
+.jumbotron2 {
+    color: rgb(253, 253, 247);
+    background-color: rgb(77, 198, 235);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+   }
+
+.button2 {
+    background-color: darkcyan;
+    padding: 14px 40px;
+    border-radius: 12px;
+
+}
+
+.button1 {
+    background-color: darkcyan;
+    border-radius: 12px;
+}
+
+.container3 {
+    background-color: rgb(102, 226, 205);
+    padding: 10px;
+    border-radius: 10px;
+    }
+
+    
+    * {
+        box-sizing: border-box;
+      }
+
+    ​.column {
+        flex: 50%;
+        padding: 10px;
+        
+    }
+
+    .row {
+        
+        display: flex;
+        
+      }

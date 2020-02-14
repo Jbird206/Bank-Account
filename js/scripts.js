@@ -35,7 +35,7 @@ $(document).ready(function() {
     var newAccount = new Account(inputtednameAccount, inputtedcheckingAccount);
     centralBank.addAccount(newAccount);
     console.log(centralBank.accounts);
-    $("#output").text(newAccount.checkingAccount);
+    $("#output").text("$" + newAccount.checkingAccount);
     //displayAccountDetails(addressBook);
   });
 
