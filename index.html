@@ -30,9 +30,8 @@
         <label for="new-name-account">First name:</label><br>
         <input type="text" id="new-name-account"  required><br>
         <label for="new-checking-account">Initial Deposit:</label><br>
-        <input type="text"  id="new-checking-account" required><br><br>
+        <input type="number"  id="new-checking-account" required><br><br>
         <button class = "button2"  type="submit">Make account</button>
-        <!-- <input type="submit" id="output" value="Submit"></input> -->
     </form>
     <br>
     <hr>
@@ -44,22 +43,27 @@
     <h2>Account Details:</h2>
         </div>
     <br>
-    <textarea id="output" rows="4" cols="20"></textarea>
+    <label for="outputName">name</label> 
+    <textarea id="outputName" rows="1" cols="20"></textarea>
+    <label for="output">Account Total:</label>
+    <textarea id="output" rows="1" cols="20" readonly="readonly"></textarea>
     </div><br>
     <div class="col-lg-6">
     <div class="p-3 mb-2 bg-danger text-white">
     <h2>Account Management</h2>
     </div>
-    <label for="accountDeposit">deposit:</label><br>
-        <input type="text" id="accountDeposit" value="$" required><br>
+    <form id="acctManagement">
+    <label for="accountDeposit">Deposit:</label><br>
+        <input type="number" id="accountDeposit"  ><br>
         <br>
         <button class = "button1"  type="submit">Complete</button><br>
         <br>
-        <label for="accountWithdrawal">Withdrawal:</label><br>
-        <input type="text" id="accountWithdrawal" value="$" required><br>
+        <label for="accountWithdraw">Withdraw:</label><br>
+        <input type="number" id="accountWithdraw" ><br> <button class = "button1"  type="submit">Complete</button>
         <br>
-        <button class = "button1"  type="submit">Complete</button>
-
+        
+    </form>
+    
     </div>
     </div>
     </div>
