@@ -15,10 +15,11 @@ centralBank.prototype.assignId = function() {
 }
 
  // Business Logic for Accounts ---------
-var Account= function (nameAccount, checkingAccount) {
+var Account= function (nameAccount, nameAccount2, checkingAccount) {
   this.nameAccount = nameAccount,
+  this.lastName = nameAccount2,
   this.checkingAccount = checkingAccount;
-  return this.nameAccount + this.checkingAccount;
+  return this.nameAccount + this.lastName + this.checkingAccount;
 };
 
 var add  = function(inputtedcheckingAccount, accountDeposit) {
@@ -42,11 +43,12 @@ $(document).ready(function() {
 $("form#new-account").submit(function(event) {
   event.preventDefault();
   var inputtednameAccount = $("input#new-name-account").val();
+  var inputtedLastname = $("input#last-name-account").val();
   var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
-  var newAccount = new Account(inputtednameAccount, inputtedcheckingAccount);
+  var newAccount = new Account(inputtednameAccount, inputtedLastname, inputtedcheckingAccount);
   centralBank.addAccount(newAccount);
   console.log(centralBank.accounts);
-  $("#outputName").html(inputtednameAccount);
+  $("#outputName").html(inputtednameAccount,inputtedLastname);
   $("#output").html( newAccount.checkingAccount);
   
 });
