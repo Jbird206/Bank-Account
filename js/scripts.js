@@ -23,7 +23,11 @@ var Account= function (nameAccount, nameAccount2, checkingAccount) {
 };
 
 var add  = function(inputtedcheckingAccount, accountDeposit) {
-  return inputtedcheckingAccount + accountDeposit;
+  return inputtedcheckingAccount += accountDeposit;
+}
+
+centralBank.prototype.deposit = function(accountDeposit) {
+  return this.accounts[0].checkingAccount += accountDeposit;
 }
 
 var subtract = function(inputtedcheckingAccount, accountWithdraw) {
@@ -45,10 +49,11 @@ $("form#new-account").submit(function(event) {
   var inputtednameAccount = $("input#new-name-account").val();
   var inputtedLastname = $("input#last-name-account").val();
   var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
+
   var newAccount = new Account(inputtednameAccount, inputtedLastname, inputtedcheckingAccount);
+
   centralBank.addAccount(newAccount);
-  console.log(centralBank.accounts);
-  $("#outputName").html(inputtednameAccount,inputtedLastname);
+  $("#outputName").html(inputtednameAccount+ " " +inputtedLastname);
   $("#output").html( newAccount.checkingAccount);
   
 });
@@ -58,11 +63,15 @@ $("form#new-account").submit(function(event) {
 
 $("form#acctManagement").submit(function(event) {
   event.preventDefault();
-var accountDeposit = parseInt($("input#accountDeposit").val());
-var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
-var result = add(accountDeposit, inputtedcheckingAccount);
-//$("#output2").html(result);
-$("#output").html(result);
+  var accountDeposit = parseInt($("input#accountDeposit").val());
+  // var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
+  // var result = add(accountDeposit, inputtedcheckingAccount);
+  
+  var result = centralBank.deposit(accountDeposit);
+  
+  //$("#output2").html(result);
+  $("#output").html(result);
+  console.log(centralBank.accounts);
 });
 
 // $("form#acctManagement").submit(function(event) {
