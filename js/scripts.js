@@ -15,11 +15,12 @@ centralBank.prototype.assignId = function() {
 }
 
  // Business Logic for Accounts ---------
-var Account= function (nameAccount, nameAccount2, checkingAccount) {
+var Account= function (nameAccount, nameAccount2, checkingAccount, password) {
   this.nameAccount = nameAccount,
   this.lastName = nameAccount2,
+  this.password = password,
   this.checkingAccount = checkingAccount;
-  return this.nameAccount + this.lastName + this.checkingAccount;
+  return this.nameAccount + this.lastName + this.checkingAccount + this.password;
 };
 
 var add  = function(inputtedcheckingAccount, accountDeposit) {
@@ -34,6 +35,15 @@ var subtract = function(inputtedcheckingAccount, accountWithdraw) {
   return inputtedcheckingAccount - accountWithdraw;
 }
 
+function checkForAccount(getPassword){
+for(var i = 0; i <= centralBank.accounts.length; i++) {
+  if(centralBank.accounts[i].password === getPassword) {
+    //do something here
+  } else {
+    alert("You need to make an account or you forgot your password")
+  };
+}
+
 
 
 // User Interface Logic ---------
@@ -44,13 +54,16 @@ var centralBank = new centralBank();
 
 $(document).ready(function() {
   //attachAccountListeners();
+
+  //create account
 $("form#new-account").submit(function(event) {
   event.preventDefault();
   var inputtednameAccount = $("input#new-name-account").val();
   var inputtedLastname = $("input#last-name-account").val();
+  var inputtedPassword = $("input#password").val();
   var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
 
-  var newAccount = new Account(inputtednameAccount, inputtedLastname, inputtedcheckingAccount);
+  var newAccount = new Account(inputtednameAccount, inputtedLastname, inputtedcheckingAccount, inputtedPassword);
 
   centralBank.addAccount(newAccount);
   $("#outputName").html(inputtednameAccount+ " " +inputtedLastname);
@@ -58,14 +71,24 @@ $("form#new-account").submit(function(event) {
   
 });
 
+$("form.register-form").submit(function(event) {
+  event.preventDefault();
+
+  var getPassword = $("input#password").val();
+  var getUsername = $("input#username").val();
+  console.log(getPassword + getUsername);
+
+  checkForAccount(getPassword, getUsername);
+
+});
 
 
 
+//add a desposit
 $("form#acctManagement").submit(function(event) {
   event.preventDefault();
   var accountDeposit = parseInt($("input#accountDeposit").val());
-  // var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
-  // var result = add(accountDeposit, inputtedcheckingAccount);
+
   
   var result = centralBank.deposit(accountDeposit);
   
@@ -74,11 +97,5 @@ $("form#acctManagement").submit(function(event) {
   console.log(centralBank.accounts);
 });
 
-// $("form#acctManagement").submit(function(event) {
-//   event.preventDefault();
-//   var accountWithdraw = parseInt($("input#accountWithdraw").val());
-//   var inputtedcheckingAccount = parseInt($("input#new-checking-account").val());
-//   var result2 = subtract(accountWithdraw, inputtedcheckingAccount);
-//   $("#output2").text(result2);
-// });
+
 });
